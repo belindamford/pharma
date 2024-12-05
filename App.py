@@ -2,8 +2,9 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 
-# Load your dataset
-df = pd.read_csv("C:/Users/belin/PycharmProjects/Pharma/.venv/Data/PBS_all_fin_year.csv")
+url = "https://docs.google.com/spreadsheets/d/1dP5N30A0kqHuMq4Mb1lFitUD4ZpmIO9Mu1FyjUJfDLY/gviz/tq?tqx=out:csv"
+df = pd.read_csv(url)
+
 df.columns = df.columns.str.strip()  # Clean up column names
 df['FY24 All'] = df['FY24 All'].replace(',', '', regex=True).astype(int)
 df['FY24 change'] = df['FY24 change'].replace(',', '', regex=True).astype(int)
